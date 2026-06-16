@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#00c6ff">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TypeMaster Pro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Floating Background -->
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+    <div class="bg-orb orb3"></div>
+
+    <!-- Header -->
+    <header class="topbar glass">
+
+        <div class="logo-area">
+            <div class="logo-icon">⌨️</div>
+            <div>
+                <h1>TypeMaster Pro</h1>
+                <p>Master Your Typing Skills</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+
+            <button id="soundBtn" class="icon-btn">
+                🔊
+            </button>
+
+            <button id="themeBtn" class="icon-btn">
+                🎨
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard">
+
+        <!-- Profile Card -->
+        <section class="profile-card glass">
+
+            <div class="avatar">
+                TM
+            </div>
+
+            <div class="profile-info">
+
+                <h2 id="usernameDisplay">
+                    Guest Player
+                </h2>
+
+                <p>
+                    Typing Champion
+                </p>
+
+                <div class="level-box">
+
+                    <div class="level-top">
+
+                        <span>
+                            Level
+                        </span>
+
+                        <span id="levelValue">
+                            1
+                        </span>
+
+                    </div>
+
+                    <div class="xp-bar">
+
+                        <div
+                            class="xp-fill"
+                            id="xpFill">
+                        </div>
+
+                    </div>
+
+                    <div class="xp-text">
+
+                        <span id="currentXP">
+                            0 XP
+                        </span>
+
+                        <span id="nextLevelXP">
+                            100 XP
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Currency Row -->
+
+        <section class="currency-grid">
+
+            <div class="currency-card glass">
+
+                <div class="currency-icon">
+                    💰
+                </div>
+
+                <div>
+                    <h3 id="coinCount">
+                        0
+                    </h3>
+
+                    <p>Coins</p>
+                </div>
+
+            </div>
+
+            <div class="currency-card glass">
+
+                <div class="currency-icon">
+                    ⭐
+                </div>
+
+                <div>
+                    <h3 id="xpCount">
+                        0
+                    </h3>
+
+                    <p>Total XP</p>
+                </div>
+
+            </div>
+
+            <div class="currency-card glass">
+
+                <div class="currency-icon">
+                    🔥
+                </div>
+
+                <div>
+                    <h3 id="streakCount">
+                        0
+                    </h3>
+
+                    <p>Streak</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Stats Grid -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card glass">
+                <h2 id="bestWPM">0</h2>
+                <p>Best WPM</p>
+            </div>
+
+            <div class="stat-card glass">
+                <h2 id="avgWPM">0</h2>
+                <p>Average WPM</p>
+            </div>
+
+            <div class="stat-card glass">
+                <h2 id="bestAccuracy">0%</h2>
+                <p>Best Accuracy</p>
+            </div>
+
+            <div class="stat-card glass">
+                <h2 id="testsCompleted">0</h2>
+                <p>Tests</p>
+            </div>
+
+        </section>
+
+        <!-- Typing Controls -->
+
+        <section class="typing-controls glass">
+
+            <div class="control-row">
+
+                <select id="difficulty">
+
+                    <option value="beginner">
+                        Beginner
+                    </option>
+
+                    <option value="intermediate">
+                        Intermediate
+                    </option>
+
+                    <option value="advanced">
+                        Advanced
+                    </option>
+
+                    <option value="expert">
+                        Expert
+                    </option>
+
+                </select>
+
+                <select id="category">
+
+                    <option value="words">
+                        Random Words
+                    </option>
+
+                    <option value="sentences">
+                        Sentences
+                    </option>
+
+                    <option value="paragraphs">
+                        Paragraphs
+                    </option>
+
+                    <option value="quotes">
+                        Quotes
+                    </option>
+
+                    <option value="code">
+                        Programming Code
+                    </option>
+
+                    <option value="numbers">
+                        Numbers
+                    </option>
+
+                    <option value="mixed">
+                        Mixed Characters
+                    </option>
+
+                </select>
+
+                <select id="duration">
+
+                    <option value="15">
+                        15s
+                    </option>
+
+                    <option value="30">
+                        30s
+                    </option>
+
+                    <option value="60">
+                        60s
+                    </option>
+
+                    <option value="120">
+                        120s
+                    </option>
+
+                    <option value="300">
+                        300s
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button id="startTestBtn" class="start-btn">
+                Start Typing Test
+            </button>
+
+        </section>
+
+        <!-- Live Typing Stats -->
+
+        <section class="live-stats">
+
+            <div class="live-card glass">
+                <h3 id="liveWPM">
+                    0
+                </h3>
+                <p>WPM</p>
+            </div>
+
+            <div class="live-card glass">
+                <h3 id="liveAccuracy">
+                    100%
+                </h3>
+                <p>Accuracy</p>
+            </div>
+
+            <div class="live-card glass">
+                <h3 id="liveMistakes">
+                    0
+                </h3>
+                <p>Mistakes</p>
+            </div>
+
+            <div class="live-card glass">
+                <h3 id="timerDisplay">
+                    60
+                </h3>
+                <p>Seconds</p>
+            </div>
+
+        </section>
+
+        <!-- Typing Area -->
+
+        <section class="typing-container glass">
+
+            <div id="textDisplay">
+
+                Click Start To Begin Typing...
+
+            </div>
+
+            <textarea
+                id="typingInput"
+                placeholder="Start typing here..."
+                autocomplete="off"
+                spellcheck="false">
+            </textarea>
+
+        </section>
+
+        <!-- Daily Challenge -->
+
+        <section class="challenge-card glass">
+
+            <div class="section-title">
+                🎯 Daily Challenge
+            </div>
+
+            <h3 id="challengeTitle">
+                Reach 50 WPM Today
+            </h3>
+
+            <div class="challenge-progress">
+
+                <div
+                    class="challenge-fill"
+                    id="challengeFill">
+                </div>
+
+            </div>
+
+            <p id="challengeStatus">
+                0 / 50 WPM
+            </p>
+
+        </section>
+
+        <!-- Achievement Preview -->
+
+        <section class="achievement-section glass">
+
+            <div class="section-title">
+                🏆 Achievements
+            </div>
+
+            <div class="achievement-grid">
+
+                <div class="achievement locked">
+                    🎖️ First Test
+                </div>
+
+                <div class="achievement locked">
+                    ⚡ 50 WPM
+                </div>
+
+                <div class="achievement locked">
+                    🚀 100 WPM
+                </div>
+
+                <div class="achievement locked">
+                    🔥 7 Day Streak
+                </div>
+
+                <div class="achievement locked">
+                    💯 100 Tests
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Leaderboard -->
+
+        <section class="leaderboard glass">
+
+            <div class="section-title">
+                🌍 Global Leaderboard
+            </div>
+
+            <div id="leaderboardList">
+
+                <div class="leader-row">
+                    <span>#1 CyberTyper</span>
+                    <span>145 WPM</span>
+                </div>
+
+                <div class="leader-row">
+                    <span>#2 NeonMaster</span>
+                    <span>132 WPM</span>
+                </div>
+
+                <div class="leader-row">
+                    <span>#3 SpeedKing</span>
+                    <span>127 WPM</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Charts -->
+
+        <section class="chart-section glass">
+
+            <div class="section-title">
+                📈 Progress Analytics
+            </div>
+
+            <canvas id="progressChart"></canvas>
+
+        </section>
+
+    </main>
+
+    <!-- Theme Modal -->
+
+    <div class="theme-panel glass" id="themePanel">
+
+        <h3>Select Theme</h3>
+
+        <button data-theme="neon">
+            Neon Blue
+        </button>
+
+        <button data-theme="purple">
+            Cyber Purple
+        </button>
+
+        <button data-theme="matrix">
+            Matrix Green
+        </button>
+
+        <button data-theme="gold">
+            Dark Gold
+        </button>
+
+    </div>
+
+    <!-- Achievement Popup -->
+
+    <div class="achievement-popup" id="achievementPopup">
+
+        <div class="popup-icon">
+            🏆
+        </div>
+
+        <div>
+
+            <h3>
+                Achievement Unlocked
+            </h3>
+
+            <p id="achievementText">
+                First Test Completed
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+<button id="installBtn" class="start-btn">
+    Install App
+</button>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#00c6ff">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+
+    <title>TypeMaster Pro</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        /* Paste ALL your CSS here */
+    </style>
+</head>
+
+<body>
+
+    <!-- All HTML content here -->
+
+    <script>
+        /* Paste ALL your JavaScript here */
+    </script>
+
+</body>
+</html>

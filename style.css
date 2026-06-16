@@ -1,0 +1,2043 @@
+/* =====================================================
+   TYPEMASTER PRO
+   PART 2A
+   FUTURISTIC NEON GLASSMORPHISM UI
+===================================================== */
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#070b16;
+    color:#ffffff;
+}
+
+/* ==========================
+   THEME VARIABLES
+========================== */
+
+:root{
+
+    --bg:#070b16;
+    --bg-secondary:#0f1729;
+
+    --glass:rgba(255,255,255,0.08);
+    --glass-border:rgba(255,255,255,0.12);
+
+    --primary:#00c6ff;
+    --secondary:#7b61ff;
+
+    --accent:#00e5ff;
+
+    --success:#00ff95;
+    --danger:#ff4d6d;
+    --warning:#ffd166;
+
+    --text:#ffffff;
+    --text-muted:#aeb6d3;
+
+    --shadow:
+    0 10px 40px rgba(0,0,0,.45);
+
+    --glow:
+    0 0 10px rgba(0,198,255,.6),
+    0 0 20px rgba(0,198,255,.4),
+    0 0 40px rgba(0,198,255,.2);
+
+    --radius:24px;
+}
+
+/* ==========================
+   CYBER PURPLE THEME
+========================== */
+
+body.theme-purple{
+
+    --primary:#ae67ff;
+    --secondary:#6f7cff;
+    --accent:#d26dff;
+
+}
+
+/* ==========================
+   MATRIX THEME
+========================== */
+
+body.theme-matrix{
+
+    --primary:#00ff88;
+    --secondary:#00cc66;
+    --accent:#00ff99;
+
+}
+
+/* ==========================
+   DARK GOLD THEME
+========================== */
+
+body.theme-gold{
+
+    --primary:#ffcc33;
+    --secondary:#ff9f1c;
+    --accent:#ffd166;
+
+}
+
+/* ==========================
+   MAIN APP
+========================== */
+
+.app{
+    position:relative;
+    min-height:100vh;
+    padding:20px;
+    z-index:2;
+}
+
+/* ==========================
+   FLOATING ORBS
+========================== */
+
+.bg-orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.25;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.orb1{
+    width:300px;
+    height:300px;
+    background:var(--primary);
+    top:-80px;
+    left:-80px;
+}
+
+.orb2{
+    width:350px;
+    height:350px;
+    background:var(--secondary);
+    top:30%;
+    right:-120px;
+}
+
+.orb3{
+    width:250px;
+    height:250px;
+    background:#ff00aa;
+    bottom:-50px;
+    left:30%;
+}
+
+/* ==========================
+   GLASSMORPHISM
+========================== */
+
+.glass{
+
+    background:var(--glass);
+
+    border:1px solid var(--glass-border);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:var(--shadow);
+
+    border-radius:var(--radius);
+
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.topbar{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:20px;
+
+    margin-bottom:24px;
+
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-icon{
+
+    width:65px;
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    box-shadow:var(--glow);
+
+}
+
+.logo-area h1{
+
+    font-size:1.5rem;
+    font-weight:700;
+
+}
+
+.logo-area p{
+
+    color:var(--text-muted);
+    font-size:.85rem;
+
+}
+
+.header-actions{
+    display:flex;
+    gap:10px;
+}
+
+.icon-btn{
+
+    width:52px;
+    height:52px;
+
+    border:none;
+    cursor:pointer;
+
+    color:white;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.08);
+
+    transition:.3s;
+
+    font-size:20px;
+}
+
+.icon-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--glow);
+
+}
+
+/* ==========================
+   DASHBOARD
+========================== */
+
+.dashboard{
+
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+
+}
+
+/* ==========================
+   PROFILE CARD
+========================== */
+
+.profile-card{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+
+    padding:25px;
+
+}
+
+.avatar{
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+    font-weight:700;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    box-shadow:var(--glow);
+
+}
+
+.profile-info{
+    flex:1;
+}
+
+.profile-info h2{
+
+    font-size:1.4rem;
+    margin-bottom:4px;
+
+}
+
+.profile-info p{
+
+    color:var(--text-muted);
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================
+   LEVEL BOX
+========================== */
+
+.level-box{
+    width:100%;
+}
+
+.level-top{
+
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    font-size:.9rem;
+
+}
+
+.xp-bar{
+
+    width:100%;
+    height:14px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:
+    rgba(255,255,255,.08);
+
+}
+
+.xp-fill{
+
+    width:25%;
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    box-shadow:var(--glow);
+
+}
+
+.xp-text{
+
+    margin-top:8px;
+
+    display:flex;
+    justify-content:space-between;
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+}
+
+/* ==========================
+   CURRENCY GRID
+========================== */
+
+.currency-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+    auto-fit,
+    minmax(180px,1fr)
+    );
+
+    gap:18px;
+
+}
+
+.currency-card{
+
+    padding:20px;
+
+    display:flex;
+    align-items:center;
+
+    gap:16px;
+
+    transition:.3s;
+
+}
+
+.currency-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--glow);
+
+}
+
+.currency-icon{
+
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+}
+
+.currency-card h3{
+
+    font-size:1.5rem;
+
+    margin-bottom:3px;
+
+}
+
+.currency-card p{
+
+    color:var(--text-muted);
+
+}
+
+/* ==========================
+   STATS GRID
+========================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+    auto-fit,
+    minmax(180px,1fr)
+    );
+
+    gap:18px;
+
+}
+
+.stat-card{
+
+    padding:24px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--glow);
+
+}
+
+.stat-card h2{
+
+    font-size:2rem;
+
+    margin-bottom:8px;
+
+    color:var(--primary);
+
+    text-shadow:
+    0 0 15px rgba(0,198,255,.5);
+
+}
+
+.stat-card p{
+
+    color:var(--text-muted);
+
+    font-size:.95rem;
+
+}
+
+/* ==========================
+   SECTION TITLES
+========================== */
+
+.section-title{
+
+    font-size:1.1rem;
+    font-weight:600;
+
+    margin-bottom:18px;
+
+    color:var(--primary);
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#090d19;
+}
+
+::-webkit-scrollbar-thumb{
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    var(--primary),
+    var(--secondary)
+    );
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+    .app{
+        padding:15px;
+    }
+
+    .topbar{
+        padding:15px;
+    }
+
+    .profile-card{
+
+        flex-direction:column;
+        text-align:center;
+
+    }
+
+    .avatar{
+
+        width:80px;
+        height:80px;
+
+    }
+
+    .currency-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stats-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .logo-area h1{
+        font-size:1.2rem;
+    }
+
+}
+/* =====================================================
+   PART 2B
+   TYPING UI + DASHBOARD COMPONENTS
+===================================================== */
+
+/* ==========================
+   TYPING CONTROLS
+========================== */
+
+.typing-controls{
+    padding:24px;
+}
+
+.control-row{
+    display:grid;
+    grid-template-columns:
+    repeat(3,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.control-row select{
+
+    height:55px;
+
+    border:none;
+    outline:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    border-radius:16px;
+
+    padding:0 15px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.control-row select option{
+    background:#0f1729;
+}
+
+/* ==========================
+   START BUTTON
+========================== */
+
+.start-btn{
+
+    width:100%;
+    height:60px;
+
+    border:none;
+    cursor:pointer;
+
+    color:white;
+
+    font-size:1rem;
+    font-weight:700;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    transition:.3s;
+
+    box-shadow:var(--glow);
+
+}
+
+.start-btn:hover{
+
+    transform:translateY(-4px);
+
+    filter:brightness(1.1);
+
+}
+
+.start-btn:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================
+   LIVE STATS
+========================== */
+
+.live-stats{
+
+    display:grid;
+
+    gap:18px;
+
+    grid-template-columns:
+    repeat(
+    auto-fit,
+    minmax(170px,1fr)
+    );
+
+}
+
+.live-card{
+
+    padding:22px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.live-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--glow);
+
+}
+
+.live-card h3{
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+}
+
+.live-card p{
+
+    color:var(--text-muted);
+
+}
+
+/* ==========================
+   TYPING CONTAINER
+========================== */
+
+.typing-container{
+
+    padding:28px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* ==========================
+   TEXT DISPLAY
+========================== */
+
+#textDisplay{
+
+    min-height:170px;
+
+    line-height:2;
+
+    font-size:1.15rem;
+
+    color:#d7dffb;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    overflow:hidden;
+
+}
+
+/* ==========================
+   CHARACTER STATES
+========================== */
+
+.correct{
+
+    color:var(--success);
+
+}
+
+.incorrect{
+
+    color:var(--danger);
+
+    text-decoration:underline;
+
+}
+
+.current{
+
+    color:white;
+
+    background:
+    var(--primary);
+
+    border-radius:4px;
+
+    box-shadow:
+    0 0 12px var(--primary);
+
+}
+
+/* ==========================
+   TEXTAREA
+========================== */
+
+#typingInput{
+
+    width:100%;
+
+    min-height:150px;
+
+    resize:none;
+
+    border:none;
+    outline:none;
+
+    padding:20px;
+
+    color:white;
+
+    font-size:1rem;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,.06);
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+#typingInput::placeholder{
+
+    color:#8892b7;
+
+}
+
+/* ==========================
+   DAILY CHALLENGE
+========================== */
+
+.challenge-card{
+
+    padding:25px;
+
+}
+
+.challenge-card h3{
+
+    margin-bottom:18px;
+
+    font-size:1.2rem;
+
+}
+
+.challenge-progress{
+
+    width:100%;
+
+    height:16px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:
+    rgba(255,255,255,.08);
+
+    margin-bottom:12px;
+
+}
+
+.challenge-fill{
+
+    width:10%;
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    box-shadow:var(--glow);
+
+}
+
+#challengeStatus{
+
+    color:var(--text-muted);
+
+}
+
+/* ==========================
+   ACHIEVEMENTS
+========================== */
+
+.achievement-section{
+
+    padding:25px;
+
+}
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+    auto-fit,
+    minmax(170px,1fr)
+    );
+
+    gap:15px;
+
+}
+
+.achievement{
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+    background:
+    rgba(255,255,255,.05);
+
+}
+
+.achievement:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.achievement.locked{
+
+    opacity:.5;
+
+}
+
+.achievement.unlocked{
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(0,255,149,.15),
+    rgba(0,198,255,.15)
+    );
+
+    border:
+    1px solid rgba(0,255,149,.3);
+
+    box-shadow:
+    0 0 25px rgba(0,255,149,.2);
+
+}
+
+/* ==========================
+   LEADERBOARD
+========================== */
+
+.leaderboard{
+
+    padding:25px;
+
+}
+
+.leader-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:15px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+}
+
+.leader-row:last-child{
+    border:none;
+}
+
+.leader-row span:first-child{
+
+    font-weight:600;
+
+}
+
+.leader-row span:last-child{
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+/* ==========================
+   CHART SECTION
+========================== */
+
+.chart-section{
+
+    padding:25px;
+
+}
+
+#progressChart{
+
+    width:100%;
+
+    height:300px;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,.04);
+
+}
+
+/* ==========================
+   THEME PANEL
+========================== */
+
+.theme-panel{
+
+    position:fixed;
+
+    top:100px;
+    right:20px;
+
+    width:250px;
+
+    padding:20px;
+
+    z-index:999;
+
+    display:none;
+
+}
+
+.theme-panel.active{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.theme-panel h3{
+
+    margin-bottom:8px;
+
+}
+
+.theme-panel button{
+
+    height:50px;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    border-radius:14px;
+
+    transition:.3s;
+
+    background:
+    rgba(255,255,255,.08);
+
+}
+
+.theme-panel button:hover{
+
+    transform:translateX(5px);
+
+    box-shadow:var(--glow);
+
+}
+
+/* ==========================
+   ACHIEVEMENT POPUP
+========================== */
+
+.achievement-popup{
+
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    width:320px;
+
+    padding:18px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    border-radius:20px;
+
+    background:
+    rgba(15,23,41,.95);
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    backdrop-filter:blur(20px);
+
+    transform:
+    translateY(150px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.5s;
+
+    z-index:1000;
+
+}
+
+.achievement-popup.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+.popup-icon{
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    font-size:26px;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+}
+
+.achievement-popup h3{
+
+    font-size:1rem;
+
+    margin-bottom:4px;
+
+}
+
+.achievement-popup p{
+
+    color:var(--text-muted);
+
+    font-size:.85rem;
+
+}
+
+/* ==========================
+   RESPONSIVE TABLET
+========================== */
+
+@media(max-width:900px){
+
+    .control-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .live-stats{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+/* ==========================
+   RESPONSIVE MOBILE
+========================== */
+
+@media(max-width:600px){
+
+    .typing-container{
+
+        padding:18px;
+
+    }
+
+    #textDisplay{
+
+        min-height:140px;
+
+        font-size:1rem;
+
+    }
+
+    #typingInput{
+
+        min-height:120px;
+
+    }
+
+    .achievement-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .live-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .theme-panel{
+
+        width:90%;
+
+        right:5%;
+
+    }
+
+    .achievement-popup{
+
+        width:90%;
+
+        right:5%;
+
+    }
+
+}
+/* =====================================================
+   PART 2C
+   ANIMATIONS & CYBERPUNK EFFECTS
+===================================================== */
+
+/* ==========================
+   ANIMATION VARIABLES
+========================== */
+
+:root{
+
+    --transition-fast:.2s;
+    --transition-normal:.35s;
+    --transition-slow:.6s;
+
+}
+
+/* ==========================
+   CYBER GRID BACKGROUND
+========================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.02) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.02) 1px,
+        transparent 1px
+    );
+
+    background-size:40px 40px;
+
+    pointer-events:none;
+
+    z-index:-3;
+
+}
+
+/* ==========================
+   CYBER LIGHT SWEEP
+========================== */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    top:-50%;
+
+    left:-30%;
+
+    width:70%;
+
+    height:200%;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.02),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:
+    sweepLight 12s linear infinite;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+}
+
+/* ==========================
+   ORB ANIMATION
+========================== */
+
+.orb1{
+    animation:
+    floatOrb1 10s ease-in-out infinite;
+}
+
+.orb2{
+    animation:
+    floatOrb2 14s ease-in-out infinite;
+}
+
+.orb3{
+    animation:
+    floatOrb3 18s ease-in-out infinite;
+}
+
+/* ==========================
+   FLOAT ANIMATIONS
+========================== */
+
+@keyframes floatOrb1{
+
+    0%,100%{
+        transform:
+        translate(0,0)
+        scale(1);
+    }
+
+    50%{
+        transform:
+        translate(40px,50px)
+        scale(1.1);
+    }
+
+}
+
+@keyframes floatOrb2{
+
+    0%,100%{
+        transform:
+        translate(0,0);
+    }
+
+    50%{
+        transform:
+        translate(-60px,40px);
+    }
+
+}
+
+@keyframes floatOrb3{
+
+    0%,100%{
+        transform:
+        translate(0,0);
+    }
+
+    50%{
+        transform:
+        translate(80px,-50px);
+    }
+
+}
+
+/* ==========================
+   LIGHT SWEEP
+========================== */
+
+@keyframes sweepLight{
+
+    from{
+        transform:
+        translateX(-120%)
+        rotate(25deg);
+    }
+
+    to{
+        transform:
+        translateX(220%)
+        rotate(25deg);
+    }
+
+}
+
+/* ==========================
+   GLOW PULSE
+========================== */
+
+@keyframes glowPulse{
+
+    0%{
+
+        box-shadow:
+        0 0 10px rgba(0,198,255,.2);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 30px rgba(0,198,255,.6),
+        0 0 60px rgba(0,198,255,.3);
+
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 10px rgba(0,198,255,.2);
+
+    }
+
+}
+
+/* ==========================
+   FLOAT CARD
+========================== */
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateY(-5px);
+    }
+
+}
+
+/* ==========================
+   PROFILE CARD EFFECT
+========================== */
+
+.profile-card{
+
+    animation:
+    floatCard 6s ease-in-out infinite;
+
+}
+
+/* ==========================
+   XP BAR SHIMMER
+========================== */
+
+.xp-bar{
+    position:relative;
+}
+
+.xp-bar::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-40%;
+
+    width:40%;
+    height:100%;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.4),
+        transparent
+    );
+
+    animation:
+    shimmer 3s linear infinite;
+
+}
+
+@keyframes shimmer{
+
+    from{
+        left:-40%;
+    }
+
+    to{
+        left:140%;
+    }
+
+}
+
+/* ==========================
+   BUTTON GLOW
+========================== */
+
+.start-btn{
+
+    animation:
+    glowPulse 3s infinite;
+
+}
+
+/* ==========================
+   BUTTON RIPPLE
+========================== */
+
+.start-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.start-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:0;
+    height:0;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.25);
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    transition:.7s;
+
+}
+
+.start-btn:hover::before{
+
+    width:400px;
+    height:400px;
+
+}
+
+/* ==========================
+   LIVE CARD EFFECT
+========================== */
+
+.live-card h3{
+
+    animation:
+    livePulse 2.5s infinite;
+
+}
+
+@keyframes livePulse{
+
+    0%,100%{
+
+        text-shadow:
+        0 0 10px transparent;
+
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 15px var(--primary),
+        0 0 35px var(--primary);
+
+    }
+
+}
+
+/* ==========================
+   ACHIEVEMENT SHINE
+========================== */
+
+.achievement.unlocked{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+.achievement.unlocked::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-50%;
+
+    width:40%;
+    height:100%;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.3),
+        transparent
+    );
+
+    animation:
+    achievementShine 4s infinite;
+
+}
+
+@keyframes achievementShine{
+
+    from{
+        left:-50%;
+    }
+
+    to{
+        left:150%;
+    }
+
+}
+
+/* ==========================
+   ACHIEVEMENT POPUP
+========================== */
+
+@keyframes popupBounce{
+
+    0%{
+        transform:
+        translateY(150px);
+        opacity:0;
+    }
+
+    60%{
+        transform:
+        translateY(-10px);
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translateY(0);
+        opacity:1;
+    }
+
+}
+
+.achievement-popup.show{
+
+    animation:
+    popupBounce .7s ease forwards;
+
+}
+
+/* ==========================
+   LEVEL UP EFFECT
+========================== */
+
+.level-up{
+
+    animation:
+    levelUpFlash 1s ease;
+
+}
+
+@keyframes levelUpFlash{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    25%{
+
+        transform:scale(1.1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+        box-shadow:
+        0 0 30px gold,
+        0 0 60px gold;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ==========================
+   XP GAIN FLOAT TEXT
+========================== */
+
+.xp-float{
+
+    position:fixed;
+
+    font-weight:700;
+
+    color:var(--success);
+
+    pointer-events:none;
+
+    animation:
+    xpFloat 1.8s ease forwards;
+
+    z-index:9999;
+
+}
+
+@keyframes xpFloat{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(0);
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        translateY(-80px);
+
+    }
+
+}
+
+/* ==========================
+   CARD HOVER PREMIUM
+========================== */
+
+.currency-card,
+.stat-card,
+.live-card,
+.challenge-card,
+.chart-section,
+.leaderboard,
+.typing-controls{
+
+    transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+
+}
+
+.currency-card:hover,
+.stat-card:hover,
+.live-card:hover,
+.challenge-card:hover,
+.chart-section:hover,
+.leaderboard:hover,
+.typing-controls:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 0 25px rgba(0,198,255,.25),
+    0 0 60px rgba(0,198,255,.08);
+
+}
+
+/* ==========================
+   THEME BUTTONS
+========================== */
+
+.theme-panel button{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+.theme-panel button::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    transform:
+    translateX(-100%);
+
+}
+
+.theme-panel button:hover::after{
+
+    animation:
+    btnSweep .8s ease;
+
+}
+
+@keyframes btnSweep{
+
+    from{
+        transform:
+        translateX(-100%);
+    }
+
+    to{
+        transform:
+        translateX(100%);
+    }
+
+}
+
+/* ==========================
+   SCROLL REVEAL
+========================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(40px);
+
+    transition:
+    opacity .8s,
+    transform .8s;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+/* ==========================
+   CHART GLOW
+========================== */
+
+#progressChart{
+
+    box-shadow:
+    inset 0 0 30px rgba(0,198,255,.05);
+
+}
+
+/* ==========================
+   NEON BORDER
+========================== */
+
+.neon-border{
+
+    border:
+    1px solid rgba(0,198,255,.3);
+
+    box-shadow:
+    0 0 15px rgba(0,198,255,.15);
+
+}
+
+/* ==========================
+   LOADING SPINNER
+========================== */
+
+.loader{
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    border:
+    4px solid rgba(255,255,255,.1);
+
+    border-top:
+    4px solid var(--primary);
+
+    animation:
+    spin .9s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* ==========================
+   DESKTOP ENHANCEMENTS
+========================== */
+
+@media(min-width:1200px){
+
+    .dashboard{
+
+        max-width:1400px;
+        margin:auto;
+
+    }
+
+    .typing-container{
+
+        min-height:420px;
+
+    }
+
+    #typingInput{
+
+        min-height:180px;
+
+    }
+
+}
+
+/* ==========================
+   REDUCED MOTION
+========================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+        transition:none !important;
+
+    }
+
+}
